@@ -1,7 +1,7 @@
 package com.patterns.problems.cases;
 
-import org.junit.jupiter.api.Test;
 
+import org.junit.Test;
 
 public class Prime {
 

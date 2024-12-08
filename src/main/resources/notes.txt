@@ -1,0 +1,48 @@
+https://www.bigocheatsheet.com/
+BIG O
+compare codes
+1st rule of simplification - drop constants
+2nd rule of simplification - drop non dominants
+
+space complexity
+memory
+
+time complexity
+- not time, no of operations per seconds
+omega - Ω - best case
+Theta - θ - average case
+Omicron, big O - 0 - worst case
+
+
+O(1)
+constant time
+most efficient
+
+Olog(n)
+find an item in a sorted array
+next best thing to O(1)
+divide and conquer
+
+O(n)
+straight line, proportional
+print items in a list, two loops of similar input
+two loops of different input - O(a+b)
+
+O(n^2) squared - n*n, less efficient
+for loop inside another with one input
+two loops of different input - O(a*b)
+
+
+Arraylist
+add item at end-  O(1)
+remove item at end -  O(1)
+add item at beginning,or other positions-  O(n)
+remove item at beginning,or other position -  O(n)
+look for item by value - O(n)
+look for item by index - O(1)
+
+pointers
+hashmap - retain pointers
+
+HashMap
+does not allow duplicate keys, but duplicate values can be added to it.
