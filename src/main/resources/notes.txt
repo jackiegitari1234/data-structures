@@ -46,3 +46,14 @@ hashmap - retain pointers
 
 HashMap
 does not allow duplicate keys, but duplicate values can be added to it.
+
+Node
+the value
+the pointer
+
+LinkedList - head, tail, length
+-Dynamic in length
+-No indexes
+-Items are spread-out, not in a continuous length
+-has ahead and a tail, these are pointers to nodes
+-Each node has next pointers, except the last

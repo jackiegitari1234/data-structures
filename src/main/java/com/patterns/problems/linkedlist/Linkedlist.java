@@ -45,6 +45,7 @@ public class Linkedlist {
         System.out.println("Tail: "+this.tail.value);
     }
 
+    //append O(1)
     void append(int value){
         Node newNode = new Node(value);
         if (length==0){
@@ -58,6 +59,7 @@ public class Linkedlist {
 
     }
 
+    //removelast O(n)
     Node removeLast(){
         if(length == 0) return null;
         Node temp = head;
@@ -76,6 +78,8 @@ public class Linkedlist {
         return temp;
 
     }
+
+    //append O(1)
     void prepend(int value){
         Node newNode = new Node(value);
         if (length == 0){
@@ -89,6 +93,7 @@ public class Linkedlist {
 
     }
 
+    //append O(1)
     Node removeFirst(){
         if(length == 0) return null;
         Node temp = head;
@@ -102,6 +107,7 @@ public class Linkedlist {
 
     }
 
+    //append O(n)
     Node get(int index){
         if( 0 > index || index>= length ){
             return null;
@@ -123,6 +129,7 @@ public class Linkedlist {
         return false;
     }
 
+    //append O(n)
     Boolean insert( int index, int value){
         if( 0 > index || index>= length ){
             return false;
@@ -143,6 +150,7 @@ public class Linkedlist {
         return true;
     }
 
+    //append O(n)
     Node remove(int index){
         if( 0 > index || index>= length )return null;
         if (index==0) return removeFirst();
@@ -170,13 +178,13 @@ public class Linkedlist {
 
     //Floyd's cycle-finding algorithm (also known as the "tortoise and the hare" algorithm)
     Node findMiddleNode(){
-        Node toEnd = head;
-        Node toMiddle = head;
-        while(toEnd !=null && toEnd.next != null){
-            toMiddle = toMiddle.next;
-            toEnd = toEnd.next.next;
+        Node fast = head;
+        Node slow = head;
+        while(fast !=null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
         }
-        return toMiddle;
+        return slow;
 
     }
 
@@ -227,10 +235,11 @@ public class Linkedlist {
                 prev2 = currentNode;
             }
             currentNode = currentNode.next;
-            prev2.next = null;
-            prev1.next = dummy2.next;
-            head = dummy1.next;
         }
+
+        prev2.next = null;
+        prev1.next = dummy2.next;
+        head = dummy1.next;
 
     }
 
@@ -266,7 +275,7 @@ public class Linkedlist {
 
     }
 
-    void reverseBetween(int startIndex, int endIndex){
+    void reverseBetween(int m, int n){
         Node temp = null;
         tail = temp;
         Node before = null;
@@ -280,21 +289,21 @@ public class Linkedlist {
         Node current = head;
         int x= 0;
         while (current != null) {
-            if(x < startIndex){
+            if(x < m){
                 movingDummy1.next = current;
                 movingDummy1 = current;
 
-            } else if(x == startIndex){
+            } else if(x == m){
                 movingDummy3 = current;
                 temp = current;
                 before = temp;
 
-            }else if( x >  startIndex && endIndex <= x){
+            }else if( x >  m && n <= x){
                 temp = current;
                 temp.next = before;
                 before = temp;
 
-            } else if(x> endIndex){
+            } else if(x> n){
                 movingDummy2.next = current;
                 movingDummy2 = current;
             }
