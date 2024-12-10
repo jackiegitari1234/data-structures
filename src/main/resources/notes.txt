@@ -90,5 +90,19 @@ right- greater than
 left - less than
 -Ologn
 
+HashTable
+-one way
+-Deterministic
+-Collition 1, separate chaining, save both at one address with linked list
+           2, linear probing, open addressing - look for open spots
+-Hash method O(1)
+-get&Set items -  O(1)
+
+Graphes
+vertex - node
+Edge or connection
+weighed or non weighted
+directional or bi-directional
+
 
 
