@@ -55,5 +55,40 @@ LinkedList - head, tail, length
 -Dynamic in length
 -No indexes
 -Items are spread-out, not in a continuous length
+
+Singly linked list
+-Has head tail and length
 -has ahead and a tail, these are pointers to nodes
+-A node here has value and next node pointer
 -Each node has next pointers, except the last
+-Remove last, HAVE to go through all items to access item b4 tail
+
+
+Doubly linked list
+-head tail and length
+-A node here has value, NEXT node pointer and PREV node pointer
+-Remove last - don't have go through all the items, tail.prev
+-get item, user can access items from tail...tail
+
+Stack
+-LIFO, web pages
+-top, HEIGHT. Everything works from the top
+
+Queue
+FIFO
+
+TREE
+-parent & child nodes, sibling
+-a node has only one parent
+a leaf- child without children
+-Linked list is a tree that does not fork
+-Has left and right pointers, binary tree
+-Full tree, all nodes point to two or zero nodes
+-Perfect tree , filled all way across
+-Complete tree, filled from left to right
+right- greater than
+left - less than
+-Ologn
+
+
+
