@@ -2,12 +2,15 @@ package com.patterns.problems.stack_study;
 
 import com.patterns.problems.linkedlist.Linkedlist;
 
+import java.util.stream.IntStream;
+
 public class Stack {
     private Node top;
     private int height;
+
     Stack(int value){
         Node newNode = new Node(value);
-        top = newNode;
+        this.top = newNode;
         height = 1;
     }
 
@@ -15,8 +18,9 @@ public class Stack {
     class Node{
         int value;
         Node next;
+
         Node(int value){
-            this.value=value;
+           this.value = value;
         }
     }
 
@@ -48,6 +52,17 @@ public class Stack {
             System.out.println(currentNode.value);
             currentNode = currentNode.next;
         }
+    }
+
+    String reverseString(String text){
+        char[] stringChars = text.toCharArray();
+        String reversed = "";
+        for(int x=stringChars.length-1; x>=0; x--){
+            reversed = reversed.concat(String.valueOf(stringChars[x]));
+
+        }
+        return reversed;
+
     }
 
     void printHeight() {

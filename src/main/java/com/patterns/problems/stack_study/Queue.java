@@ -1,9 +1,10 @@
 package com.patterns.problems.stack_study;
 
 public class Queue {
-    private Node first;
-    private Node last;
-    private int length;
+    Node first;
+    Node last;
+    int length;
+
     Queue(int value){
         Node newNode = new Node(value);
         first = newNode;

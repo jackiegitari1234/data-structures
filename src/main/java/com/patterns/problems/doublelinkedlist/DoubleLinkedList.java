@@ -1,6 +1,8 @@
 package com.patterns.problems.doublelinkedlist;
 
 
+import com.patterns.problems.linkedlist.Linkedlist;
+
 public class DoubleLinkedList {
     Node head;
     Node tail;
@@ -68,38 +70,41 @@ public class DoubleLinkedList {
 
     }
 
-    Node removeFirst(){
-        if(length == 0) return null;
-        if(length==1){
-            tail = null;
-            head=null;
-        }
+    public Node removeFirst(){
+        if (length == 0) return null;
         Node temp = head;
-        head = head.next;
-        head.prev = null;
-        temp.next = null;
-        length--;
+        if (length == 1){
+            tail = null;
+            head = null;
+        } else {
+            head = head.next;
+            head.prev = null;
+            temp.next = null;
+        }
+        length --;
         return temp;
-
     }
 
-    Node get(int index){
-        if (index < 0 || index >= length){
+    public Node get(int index){
+        if(length == 0) return null;
+        if (index < 0 || index>= length){
             return null;
         }
-        Node temp = head;
-        if(index < length/2) {
+        Node currentNode = head;
+        if (index < length/2) {
             for (int x = 0; x < index; x++) {
-                temp = temp.next;
+                currentNode = currentNode.next;
             }
         } else {
-            temp = tail;
-            for (int x = length; x > index; x--) {
-                temp = temp.prev;
+            currentNode = tail;
+            for (int x = length-1; x > index; x--) {
+                currentNode = currentNode.prev;
             }
         }
-        return temp;
+        return currentNode;
     }
+
+
 
     boolean set(int index, int value){
         Node temp = get(index);
@@ -108,6 +113,32 @@ public class DoubleLinkedList {
             return  true;
         }
         return false;
+    }
+
+    Node remove(int index){
+        if(index < 0 || index> length){
+            return null;
+        }
+        if (index == 0){
+           return  removeFirst();
+        }
+        if(index == length-1){
+           return removeLast();
+        }
+        Node temp = get(index);
+        if (temp != null) {
+            Node prev = temp.prev;
+            Node next = temp.next;
+            prev.next = next;
+            next.prev = prev;
+            temp.prev = null;
+            temp.next = null;
+            length--;
+            return temp;
+        } else {
+            return null;
+        }
+
     }
 
     boolean insert(int index, int value){
@@ -132,5 +163,47 @@ public class DoubleLinkedList {
         after.prev = newNode;
         length++;
         return true;
+    }
+
+    public void reverse(){
+        Node temp = head;
+        Node before = null;
+        head = tail;
+        tail = temp;
+        while (temp != null){
+           Node after = temp.next;
+           temp.next = before;
+           before=temp;
+           temp=after;
+        }
+    }
+
+    Boolean isPalindrome(){
+        if(length<=0) return true;
+        Node forwardNoew = head;
+        Node backwardNode = tail;
+        for (int x=0; x<length/2; x++ ){
+            if (forwardNoew.value != backwardNode.value){
+                return false;
+            }
+            forwardNoew = forwardNoew.next;
+            backwardNode = backwardNode.prev;
+        }
+        return true;
+    }
+    void swapPairs(){
+        if (length <= 1){
+            return;
+        }
+        Node currentNode = head;
+        for (int x=2; x<length+1; x++){
+            if (x%2 == 0 && currentNode.next != null){
+                int currentValue = currentNode.value;
+                currentNode.value = currentNode.next.value;
+                currentNode.next.value = currentValue;
+            }
+            currentNode = currentNode.next;
+
+        }
     }
 }

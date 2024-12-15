@@ -73,9 +73,14 @@ Doubly linked list
 Stack
 -LIFO, web pages
 -top, HEIGHT. Everything works from the top
+- push
+- pop
 
 Queue
+-first, last, length
 FIFO
+Enqueue
+Dequeue
 
 TREE
 -parent & child nodes, sibling
