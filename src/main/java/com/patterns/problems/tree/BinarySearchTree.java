@@ -1,7 +1,5 @@
 package com.patterns.problems.tree;
 
-import com.patterns.problems.stack_study.Queue;
-
 public class BinarySearchTree {
     Node root;
 
@@ -12,6 +10,23 @@ public class BinarySearchTree {
         Node(int value){
             this.value=value;
         }
+    }
+
+    public boolean contains(int value){
+        Node temp = root;
+        if (root == null){
+            return false;
+        }
+        while (temp != null){
+            if (value < temp.value){
+                temp = temp.left;
+            } else if (value > temp.value) {
+                temp = temp.right;
+            } else {
+                return true;
+            }
+        }
+        return false;
     }
 
     public boolean insert(int value){

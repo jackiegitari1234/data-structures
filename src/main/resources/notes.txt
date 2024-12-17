@@ -93,7 +93,7 @@ a leaf- child without children
 -Complete tree, filled from left to right
 right- greater than
 left - less than
--Ologn
+-Ologn - add, remove, find
 
 HashTable
 -one way
@@ -103,11 +103,28 @@ HashTable
 -Hash method O(1)
 -get&Set items -  O(1)
 
-Graphes
+Graphs
 vertex - node
 Edge or connection
 weighed or non weighted
 directional or bi-directional
+-Adjacency matrix or Adjacency List
+BIG O
+-space
+ matrix - O(V2)
+ list - O(V + E) - BETTER
+-ADD VERTEX
+ matrix - O(V2)
+ list - O(1)
+- ADD EDGE
+ matrix - O(1)
+ list - O(1)
+- REMOVE EDGE
+ matrix - O(1)
+ list - O(E)
+- REMOVE VERTEX
+  matrix - O(V2)
+  list - O(V+E)
 
 
 

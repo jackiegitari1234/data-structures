@@ -1,5 +1,7 @@
 package com.patterns.problems.hashtable;
 
+import java.util.Objects;
+
 public class HashTable {
     private int size = 7;
     private Node[] dataMap;
@@ -21,10 +23,10 @@ public class HashTable {
 
     private int hash(String key){
         int hash = 0;
-        char[] keyChars = key.toCharArray();
-        for (int i=0; i<keyChars.length; i++){
-            int asciiValue = keyChars[i];
-            hash = (hash + asciiValue*23) % dataMap.length;
+        char[] keyArray = key.toCharArray();
+        for (int i = 0; i < keyArray.length; i++){
+            int ascii = keyArray[i];
+            hash = (hash +ascii*23) % dataMap.length;
         }
         return hash;
     }
@@ -41,5 +43,17 @@ public class HashTable {
             }
             temp.next = newNode;
         }
+    }
+
+    public int get(String key){
+        int index = hash(key);
+        Node temp = dataMap[index];
+        while (temp != null){
+            if(temp.key.equals( key)){
+                return temp.value;
+            }
+            temp = temp.next;
+        }
+        return 0;
     }
 }
