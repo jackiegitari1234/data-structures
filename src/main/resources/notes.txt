@@ -109,6 +109,7 @@ Edge or connection
 weighed or non weighted
 directional or bi-directional
 -Adjacency matrix or Adjacency List
+-No duplicates
 BIG O
 -space
  matrix - O(V2)
@@ -125,6 +126,15 @@ BIG O
 - REMOVE VERTEX
   matrix - O(V2)
   list - O(V+E)
+
+HEAP
+-binary tree, each value has values greater than decendants
+-no particular order
+-always complete - filled from left
+-you can have duplicates
+-max heap, min heap
+-leftchildIndex = 2*parentIndex
+-rightChildIndex = 2*parentIndex+1
 
 
 
