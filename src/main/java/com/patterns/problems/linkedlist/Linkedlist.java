@@ -131,7 +131,7 @@ public class Linkedlist {
 
     //append O(n)
     Boolean insert( int index, int value){
-        if( 0 > index || index>= length ){
+        if( 0 > index || index> length ){
             return false;
         }
         if (index == 0){
@@ -316,6 +316,25 @@ public class Linkedlist {
 
 
 
+    }
+
+    void bubbleSort(){
+        if (length < 2) return;
+        Node sortedUntil = null;
+        while (sortedUntil != this.head.next) {
+            Node temp = head;
+            while (temp.next != sortedUntil) {
+                Node nextNode = temp.next;
+                if (temp.value > nextNode.value) {
+                    int tempValue = temp.value;
+                    temp.value = nextNode.value;
+                    nextNode.value = tempValue;
+                }
+                temp = temp.next;
+            }
+            sortedUntil = temp;
+
+        }
     }
 
 
