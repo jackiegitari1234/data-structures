@@ -45,4 +45,12 @@ public class MergeSort {
 
     }
 
+    public static void main(String[] args) {
+        int[] array1 = {1,3,7,8};
+        int[] array2 = {2,4,5,6};
+        int[] combined = mergeSort(new int[]{1, 3, 4, 2, 8});
+        System.out.println(Arrays.toString(combined));
+
+    }
+
 }
