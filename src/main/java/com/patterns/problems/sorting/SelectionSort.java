@@ -2,6 +2,7 @@ package com.patterns.problems.sorting;
 
 import java.util.Arrays;
 
+//o(n2) //usually better than bubble but unstable
 public class SelectionSort {
 
     public static void selectionSort(int[] array){

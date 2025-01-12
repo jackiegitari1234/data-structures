@@ -3,8 +3,8 @@ package com.patterns.problems.sorting;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+//o(n2)
 public class BubbleSort {
-//    List<Integer> heap;
 
     public static void bubble(int[] array){
         for (int x=array.length-1; x>0; x--){
