@@ -25,7 +25,7 @@ public class SelectionSort {
 
     public static void selection (int[] array){
         for (int x=0; x<array.length; x++){
-            int minIndex = 0;
+            int minIndex = x;
             for (int j=x+1; j<array.length; j++){
                 if (array[minIndex] > array[j]){
                     minIndex = j;

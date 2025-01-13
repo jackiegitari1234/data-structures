@@ -3,7 +3,8 @@ package com.patterns.problems.palindrome;
 import java.util.HashMap;
 import java.util.Map;
 
-/**Given a string S made of N letters,
+/**
+ * Given a string S made of N letters,
  * return the max number of three-letter palindromes
  * you can build using letters from S.
  * You can use each letter from S once
@@ -66,10 +67,50 @@ public class MaxThreeLetterPalindromes {
     }
 
     public static void main(String[] args) {
-        String S = "dd";
-//        String S = "fknfkn";
+//        String S = "dd";
+        String S = "fknfkn";
 //        String S = "xyvzwy";
 //        String S = "aaaabc";
-        System.out.println("Max three-letter palindromes: " + maxThreeLetterPalindromes(S));
+        System.out.println("Max three-letter palindromes: " + maxThreeLetterPalindromes2(S));
+    }
+
+    public static int maxThreeLetterPalindromes2(String S) {
+        Map<Character, Integer> occurences = new HashMap<>();
+        int parids = 0;
+        for (Character c : S.toCharArray()) {
+            occurences.put(c, occurences.getOrDefault(c, 0) + 1);
+        }
+        while (true) {
+            Character a = 0;
+            Character b = 0;
+            for (Map.Entry<Character, Integer> entry : occurences.entrySet()) {
+                if (entry.getValue() >= 2) {
+                    a = entry.getKey();
+                    break;
+                }
+            }
+            for (Map.Entry<Character, Integer> entry : occurences.entrySet()) {
+
+                if (entry.getValue() >= 1 && entry.getKey() != a) {
+                    b = entry.getKey();
+                    break;
+                }
+            }
+
+            if (a != 0 && b != 0) {
+                parids++;
+                occurences.put(a, occurences.get(a) - 2);
+                occurences.put(b, occurences.get(b) - 1);
+            } else if (a != 0 && occurences.get(a) >= 3) {
+                parids++;
+                occurences.put(a, occurences.get(a) - 3);
+            } else {
+                break;
+            }
+            occurences.entrySet().removeIf(entr -> entr.getValue() <= 0);
+        }
+
+        return parids;
+
     }
 }
