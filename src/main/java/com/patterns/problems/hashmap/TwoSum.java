@@ -1,4 +1,4 @@
-package com.patterns.problems.cases;
+package com.patterns.problems.hashmap;
 
 
 
@@ -9,15 +9,15 @@ import java.util.Map;
 
 public class TwoSum {
 
-    public int[] findIndices(int[] numbers, int target ){
+    public int[] findIndices(int[] nums, int target ){
         Map<Integer, Integer> map = new HashMap<>();
-        int length = numbers.length;
+        int length = nums.length;
         for(int x=0; x<length; x++){
-            int complement = target-numbers[x];
+            int complement = target-nums[x];
             if (map.containsKey(complement)){
                 return new int[]{x, map.get(complement)};
             }
-            map.put(numbers[x], x);
+            map.put(nums[x], x);
         }
         return new int[]{};
 
