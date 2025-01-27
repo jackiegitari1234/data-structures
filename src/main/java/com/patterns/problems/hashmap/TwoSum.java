@@ -7,6 +7,7 @@ import org.junit.Test;
 import java.util.HashMap;
 import java.util.Map;
 
+//returns array of indices of digits whose sum is equal to target
 public class TwoSum {
 
     public int[] findIndices(int[] nums, int target ){

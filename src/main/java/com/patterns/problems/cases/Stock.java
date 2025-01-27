@@ -21,7 +21,7 @@ public class Stock {
 
     @Test
     public void printOptions() {
-        int[] prices = {1,6,4,3,1,7};
+        int[] prices = {22,6,4,10,1,7,22};
         System.out.println("maxProfit : " +maxProfit(prices));
     }
 }
