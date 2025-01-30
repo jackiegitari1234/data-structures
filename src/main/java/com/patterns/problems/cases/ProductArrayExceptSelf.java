@@ -27,7 +27,7 @@ public class ProductArrayExceptSelf {
     }
 
     public static void main(String[] args) {
-        int[] nums = {1, 2, 3, 4};
+        int[] nums = {3,2,4,9};
         int[] result = productExceptSelf(nums);
 
         // Output the result
