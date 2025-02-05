@@ -1,4 +1,4 @@
-package com.patterns.problems.cases;
+package com.patterns.problems.cases.dynamic.programming;
 
 
 import org.junit.Test;
@@ -11,6 +11,20 @@ public class Stairs {
     public int climbStairs(int n) {
         Map<Integer, Integer> map = new HashMap<>();
         return climbStairs(map, n);
+    }
+
+    //Fibonacci Optimized, reduce space complexity
+    public int climbStairs2(int n) {
+        if (n == 1) return 1;
+        if (n == 2) return 2;
+
+        int first = 1, second = 2, ways = 0;
+        for (int i = 3; i <= n; i++) {
+            ways = first + second;
+            first = second;
+            second = ways;
+        }
+        return ways;
     }
 
     public int climbStairs(Map<Integer, Integer> map , int n) {
@@ -27,6 +41,6 @@ public class Stairs {
 
     @Test
     public void printOptions(){
-        System.out.println("options : " + climbStairs(190));
+        System.out.println("options : " + climbStairs2(5));
     }
 }
