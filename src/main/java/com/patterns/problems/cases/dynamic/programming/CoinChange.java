@@ -6,22 +6,22 @@ import java.util.Arrays;
 public class CoinChange {
     public int coinChange(int[] coins, int amount) {
         int max = amount + 1; // A large value to represent an unreachable state
-        int[] dp = new int[amount + 1]; // dp[i] represents the minimum coins needed for amount 'i'
-        Arrays.fill(dp, max); // Fill the dp array with a large value initially
-        dp[0] = 0; // Base case: 0 coins are needed to make amount 0
+        int[] minCoinsNeeded = new int[amount + 1]; // minCoinsNeeded[i] represents the minimum coins needed for amount 'i'
+        Arrays.fill(minCoinsNeeded, max); // Fill the minCoinsNeeded array with a large value initially
+        minCoinsNeeded[0] = 0; // Base case: 0 coins are needed to make amount 0
 
         // Iterate through each coin denomination
         for (int coin : coins) {
-            // For each amount from 'coin' to 'amount', update the dp array
+            // For each amount from 'coin' to 'amount', update the minCoinsNeeded array
             for (int i = coin; i <= amount; i++) {
-                int ss = dp[i - coin] + 1;
-                int existingValue = dp[i];
-                dp[i] = Math.min(existingValue, dp[i - coin] + 1); // Choose the minimum coins required
+                int ss = minCoinsNeeded[i - coin] + 1;
+                int existingValue = minCoinsNeeded[i];
+                minCoinsNeeded[i] = Math.min(existingValue, minCoinsNeeded[i - coin] + 1); // Choose the minimum coins required
             }
         }
 
-        // If dp[amount] is still 'max', it means the amount cannot be formed with given coins
-        return dp[amount] == max ? -1 : dp[amount];
+        // If minCoinsNeeded[amount] is still 'max', it means the amount cannot be formed with given coins
+        return minCoinsNeeded[amount] == max ? -1 : minCoinsNeeded[amount];
     }
 
     public static void main(String[] args) {

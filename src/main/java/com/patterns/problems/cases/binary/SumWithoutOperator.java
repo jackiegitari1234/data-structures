@@ -1,4 +1,4 @@
-package com.patterns.problems.cases;
+package com.patterns.problems.cases.binary;
 
 //& (bitwise AND)
 //| (bitwise OR)
