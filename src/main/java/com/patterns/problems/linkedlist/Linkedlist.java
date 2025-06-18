@@ -1,9 +1,6 @@
 package com.patterns.problems.linkedlist;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Linkedlist {
     private Node head;
@@ -37,8 +34,9 @@ public class Linkedlist {
         System.out.println("Length: " + this.length);
     }
 
-    void getHead() {
+    Node getHead() {
         System.out.println("Head: "+this.head.value);
+        return this.head;
     }
 
     void getTail() {
@@ -174,6 +172,20 @@ public class Linkedlist {
             before = temp;
             temp = after;
         }
+    }
+
+    public Node reverseList(Node head) {
+        Node temp = head;
+        Node before = null;
+        Node after = null;
+        while(temp != null){
+            after = temp.next;
+            temp.next = before;
+            before = temp;
+            temp = after;
+        }
+        return before;
+
     }
 
     //Floyd's cycle-finding algorithm (also known as the "tortoise and the hare" algorithm)
