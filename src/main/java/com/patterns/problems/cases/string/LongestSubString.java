@@ -6,8 +6,9 @@ import java.util.List;
 
 public class LongestSubString {
     public static int solution(String s) {
+        int nums[] = new int[4];
+        System.out.println(nums[5]);
         if (s == null || s.isEmpty()) return 0;
-
         HashMap<Character, Integer> charIndexMap = new HashMap<>();
         int maxLength = 0;
         int left = 0; // Left pointer of the sliding window
