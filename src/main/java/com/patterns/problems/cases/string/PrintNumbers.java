@@ -20,6 +20,8 @@ public class PrintNumbers {
 
     }
 
+
+
     @Test
     public void printOptions(){
         search(6);
