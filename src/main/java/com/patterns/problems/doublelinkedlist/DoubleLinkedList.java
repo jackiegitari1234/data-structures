@@ -1,8 +1,6 @@
 package com.patterns.problems.doublelinkedlist;
 
 
-import com.patterns.problems.linkedlist.Linkedlist;
-
 public class DoubleLinkedList {
     Node head;
     Node tail;

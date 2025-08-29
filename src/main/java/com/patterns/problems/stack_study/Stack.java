@@ -1,9 +1,5 @@
 package com.patterns.problems.stack_study;
 
-import com.patterns.problems.linkedlist.Linkedlist;
-
-import java.util.stream.IntStream;
-
 public class Stack {
     private Node top;
     private int height;

@@ -2,12 +2,12 @@ package com.patterns.problems.linkedlist;
 
 import java.util.*;
 
-public class Linkedlist {
+public class Linkedlist2 {
     private Node head;
     private Node tail;
     private int length;
 
-    public Linkedlist(int value) {
+    public Linkedlist2(int value) {
         Node newNode = new Node(value);
         this.head = newNode;
         this.tail = newNode;

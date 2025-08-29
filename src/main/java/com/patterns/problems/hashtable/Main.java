@@ -1,7 +1,5 @@
 package com.patterns.problems.hashtable;
 
-import com.patterns.problems.linkedlist.Linkedlist;
-
 import java.util.Arrays;
 
 public class Main {
