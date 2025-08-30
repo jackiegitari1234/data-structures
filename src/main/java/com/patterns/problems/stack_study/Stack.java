@@ -6,68 +6,48 @@ public class Stack {
 
     Stack(int value){
         Node newNode = new Node(value);
-        this.top = newNode;
+        top = newNode;
         height = 1;
     }
 
-
-    class Node{
+    static class Node{
         int value;
         Node next;
-
-        Node(int value){
-           this.value = value;
+        Node (int value){
+            this.value = value;
         }
     }
 
-    public void push(int value){
+    public void printStack(){
+        Node temp = top;
+        while (temp != null){
+            System.out.println(temp.value);
+            temp = temp.next;
+        }
+    }
+
+    public void push(int value) {
         Node newNode = new Node(value);
-        if (height==0){
+        if (top == null) {
             top = newNode;
+            height = 1;
         } else {
             newNode.next = top;
             top = newNode;
+            height++;
         }
-        height++;
     }
 
-    public Node pop(){
-        if (height==0){
-            return null;
-        }
+        public Node pop(){
         Node temp = top;
+        if (top == null) return null;
         top = top.next;
         temp.next = null;
-        height--;
+        height --;
         return temp;
-    }
-
-    void printStack() {
-        Node currentNode = this.top;
-        while(currentNode != null) {
-            System.out.println(currentNode.value);
-            currentNode = currentNode.next;
-        }
-    }
-
-    String reverseString(String text){
-        char[] stringChars = text.toCharArray();
-        String reversed = "";
-        for(int x=stringChars.length-1; x>=0; x--){
-            reversed = reversed.concat(String.valueOf(stringChars[x]));
 
         }
-        return reversed;
 
-    }
 
-    void printHeight() {
-        System.out.println(height);
-
-    }
-    void printTop() {
-        System.out.println(top.value);
-
-    }
 
 }

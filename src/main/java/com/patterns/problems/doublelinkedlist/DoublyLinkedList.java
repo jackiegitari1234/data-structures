@@ -49,7 +49,20 @@ public class DoublyLinkedList {
         }
     }
 
-    Node removeLast(int value){
+    boolean isPalindrome(){
+        Node forwardNode = head;
+        Node backwardNode = tail;
+        for (int i = 0; i < length/2; i++) {
+            if (forwardNode.value != backwardNode.value){
+                return false;
+            }
+            forwardNode = forwardNode.next;
+            backwardNode = backwardNode.prev;
+        }
+        return true;
+    }
+
+        Node removeLast(int value){
         if (head==null) return null;
         Node temp = tail;
         if (length == 1){
@@ -61,6 +74,54 @@ public class DoublyLinkedList {
         }
         length --;
         return temp;
+    }
+
+    void reverse(){
+        if (head == null) return;
+        if (length == 1) return;
+        Node current = head;
+        while (current != null){
+            Node temp = current.prev;
+            current.prev = current.next;
+            current.next = temp;
+            current = current.prev;
+        }
+
+        Node temp = head;
+        head = tail;
+        tail = temp;
+    }
+
+    public void partitionList(int x) {
+        if (head == null) return;
+        if (head.next == null) return;
+        Node dummy1 = new Node(0);
+        Node dummy2 = new Node(0);
+        Node temp1 = dummy1;
+        Node temp2 = dummy2;
+        Node temp = head;
+        while (temp != null){
+            if (temp.value < x){
+                temp1.next = temp;
+                temp.prev = temp1;
+                temp1 = temp;
+            } else {
+                temp2.next = temp;
+                temp.prev = temp2;
+                temp2 = temp;
+            }
+            temp = temp.next;
+        }
+        temp2.next = null;
+        temp1.next = dummy2.next;
+        if (dummy2.next != null){
+            dummy2.next.prev = temp1;
+        }
+        head = dummy1.next;
+
+        if (head != null) {
+            head.prev = null;
+        }
     }
 
     void prePend(int value){
