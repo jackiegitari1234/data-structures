@@ -3,6 +3,7 @@ BIG O
 compare codes
 1st rule of simplification - drop constants
 2nd rule of simplification - drop non dominants
+O(n^2 +n) = On^2
 
 space complexity
 memory
@@ -18,7 +19,7 @@ O(1)
 constant time
 most efficient
 
-Olog(n)
+O(log n)
 find an item in a sorted array
 next best thing to O(1)
 divide and conquer
@@ -41,6 +42,9 @@ remove item at beginning,or other position -  O(n)
 look for item by value - O(n)
 look for item by index - O(1)
 
+class - a blueprint, or a template for creating objects
+constructor - a method used to initialize objects of a class
+
 pointers
 hashmap - retain pointers
 
@@ -62,6 +66,11 @@ Singly linked list
 -A node here has value and next node pointer
 -Each node has next pointers, except the last
 -Remove last, HAVE to go through all items to access item b4 tail
+Add item at end = O(1)
+Remove item at end = O(n)
+Add item at head = O(1)
+Remove item from head = O(1)
+Look for value by value or index= O(n)
 
 
 Doubly linked list

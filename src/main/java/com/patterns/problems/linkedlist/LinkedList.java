@@ -70,7 +70,7 @@ public class LinkedList {
                 this.tail = null;
             } else {
                 Node temp = head;
-                while (temp.next.next != null) {
+                while (temp.next != tail) {
                     temp = temp.next;
                 }
                 temp.next = null;

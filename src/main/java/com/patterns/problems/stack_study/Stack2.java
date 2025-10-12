@@ -1,6 +1,9 @@
 package com.patterns.problems.stack_study;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Stack;
 
 //Push POP for a Stack That Uses an ArrayList
 public class Stack2<T> {
@@ -27,6 +30,20 @@ public class Stack2<T> {
         } else {
             return stackList.get(stackList.size() - 1);
         }
+    }
+
+    public String reverseString2(String value){
+        Stack<Character> characters = new Stack<>();
+        String reverse = "";
+        for (char c: value.toCharArray()) {
+            characters.push(c);
+        }
+
+        while (!characters.isEmpty()){
+            reverse += characters.pop();
+        }
+        return reverse;
+
     }
 
     public int size() {
