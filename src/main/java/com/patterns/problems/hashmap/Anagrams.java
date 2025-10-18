@@ -21,6 +21,11 @@ public class Anagrams {
             }
         }
 
+        int item = 'A';
+        System.out.println("item "+item);
+
+
+
         return new ArrayList<>(map.values());
 
     }

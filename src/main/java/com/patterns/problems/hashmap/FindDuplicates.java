@@ -18,28 +18,44 @@ public class FindDuplicates {
         return new ArrayList<>(duplicates);
     }
 
-    public static Character firstNonRepeatingChar(String string) {
-        Map<Character, Integer> charCounts = new HashMap<>();
+    public static List<Integer> removeDuplicates(List<Integer> myList) {
+        Set<Integer> newList = new HashSet<>(myList);
+        return new ArrayList<>(newList);
 
-        // Count character frequencies
-        for (int i = 0; i < string.length(); i++) {
-            char c = string.charAt(i);
-            charCounts.put(c, charCounts.getOrDefault(c, 0) + 1);
-        }
-
-        // Find the first char with count == 1
-        for (int i = 0; i < string.length(); i++) {
-            char c = string.charAt(i);
-            if (charCounts.get(c) == 1) {
-                return c;
-            }
-        }
-
-        return null;
     }
 
+    public static boolean hasUniqueChars(String string) {
+        if (string.length() > 128) {
+            return false;
+        }
+        char[] arrayList = string.toCharArray();
+        Set<Character> items = new HashSet<>();
+        for (char c : arrayList) {
+            if (!items.add(c)) return false;
+        }
+        return true;
+    }
+
+    public static List<int[]> findPairs(int[] arr1, int[] arr2, int target) {
+        Set<Integer> set1 = new HashSet<>();
+        for (int c : arr1) {
+            set1.add(c);
+        }
+        List<int[]> lists = new ArrayList<>();
+        for (int i : arr2) {
+            if (set1.contains(target - i)) {
+                lists.add(new int[]{target - i, i});
+            }
+
+        }
+        return lists;
+    }
+
+
     public static void main(String[] args) {
-        int[] items = new int[]{1,1,1,3,3,4,3,2,4,2};
-        System.out.println(firstNonRepeatingChar("swiss"));
+        int[] items2 = new int[]{1, 1, 1, 3, 3, 4, 3, 2, 4, 2};
+        List<Integer> newList = Arrays.asList(1, 2, 3, 4, 1, 2, 5, 6, 7, 3, 4, 8, 9, 5);
+
+        System.out.println(findPairs(new int[]{1, 2, 3, 4, 5}, new int[]{2, 4, 8, 10}, 7));
     }
 }

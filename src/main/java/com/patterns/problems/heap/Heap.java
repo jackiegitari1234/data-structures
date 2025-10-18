@@ -6,7 +6,7 @@ import java.util.List;
 public class Heap {
     List<Integer> heap;
 
-    Heap(){
+    public Heap(){
         heap = new ArrayList<>();
     }
 
@@ -35,22 +35,13 @@ public class Heap {
         heap.set(index2, temp);
     }
 
-    public void insert(int value){
-        if (heap == null) {
-            heap = new ArrayList<>();
-            heap.add(value);
-            return;
-        }
+    public void insert(int value) {
         heap.add(value);
-        int currentIndex = heap.size()-1;
-        while (currentIndex > 0){
-            int parentIndex = (currentIndex-1)/2;
-            int parent = heap.get(parentIndex);
-            if(parent < value){
-                heap.set(parentIndex, value);
-                heap.set(currentIndex, parent);
-            }
-            currentIndex = parentIndex;
+        int current = heap.size() - 1;
+
+        while (current > 0 && heap.get(current) > heap.get(parent(current))) {
+            swap(current, parent(current));
+            current = parent(current);
         }
     }
 
@@ -77,17 +68,40 @@ public class Heap {
         if (heap.isEmpty()) {
             return null;
         }
-        int temp = heap.get(0);
         if (heap.size() == 1) {
-            heap.remove(0);
-            return temp;
+            return heap.remove(0);
         }
-        int lastItem = heap.get(heap.size()-1);
-        heap.set(0, lastItem);
-        heap.remove(heap.size()-1);
-        heapify(0);
+        int temp = heap.get(0);
+        heap.set(0, heap.remove(heap.size()-1));
+        sinkDown(0);
         return temp;
     }
+
+
+
+    private void sinkDown(int index) {
+        int minIndex = index;
+        while (true) {
+            int leftIndex = leftChild(index);
+            int rightIndex = rightChild(index);
+
+            if (leftIndex < heap.size() && heap.get(leftIndex) < heap.get(minIndex)) {
+                minIndex = leftIndex;
+            }
+
+            if (rightIndex < heap.size() && heap.get(rightIndex) < heap.get(minIndex)) {
+                minIndex = rightIndex;
+            }
+
+            if (minIndex != index) {
+                swap(index, minIndex);
+                index = minIndex;
+            } else {
+                return;
+            }
+        }
+    }
+
 
     public Integer removeMinHeap(){
         if (heap.isEmpty()) {
