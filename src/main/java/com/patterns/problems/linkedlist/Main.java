@@ -6,25 +6,19 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        LinkedList myLinkedList = new LinkedList(1);
-        myLinkedList.append(2);
-        myLinkedList.append(3);
-        myLinkedList.append(4);
-        myLinkedList.append(5);
-        myLinkedList.append(6);
-        myLinkedList.append(7);
-        myLinkedList.append(8);
+        LinkedList l1 = new LinkedList(1);
+        l1.append(3);
+        l1.append(5);
+        l1.append(7);
 
-        myLinkedList.swapPairs();
-        myLinkedList.printList();
+        LinkedList l2 = new LinkedList(2);
+        l2.append(4);
+        l2.append(6);
+        l2.append(8);
 
-        List<String> list1 = new ArrayList<>();
-        list1.add("Hello");
+        l1.merge(l2);
 
-        List<String> list2 = list1;
-        list2.add("World");
-
-        System.out.println(list1); // [Hello, World]
+        l1.printList();
 
     }
 }

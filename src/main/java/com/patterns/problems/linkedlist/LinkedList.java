@@ -14,6 +14,15 @@ public class LinkedList {
         length=1;
     }
 
+    public Node getHead() {
+        return head;
+    }
+
+    public Node getTail() {
+        return tail;
+    }
+
+
     public void printList(){
         Node temp = head;
         while (temp != null ){
@@ -213,8 +222,9 @@ public class LinkedList {
 
     }
 
-    public void getLength(){
+    public int getLength(){
         System.out.println("size is "+ this.length);
+        return this.length;
     }
 
     public static class Node{
@@ -224,5 +234,32 @@ public class LinkedList {
         Node(int value){
             this.value = value;
         }
+    }
+
+    public void merge(LinkedList otherList){
+        Node dummyNode = new Node(0);
+        Node current = dummyNode;
+        Node head2 = otherList.head;
+        Node head1 = head;
+        while (head1 != null && head2 != null){
+            if (head1.value < head2.value){
+                current.next = head1;
+                current = head1;
+                head1 = head1.next;
+            } else {
+                current.next = head2;
+                current = head2;
+                head2 = head2.next;
+            }
+        }
+        if (head1 != null){
+            current.next = head1;
+        }
+        if (head2 != null){
+            current.next = head2;
+            tail = otherList.tail;
+        }
+        head = dummyNode.next;
+        length = length + otherList.length;
     }
 }
